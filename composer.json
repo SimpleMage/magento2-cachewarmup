@@ -1,0 +1,20 @@
+{
+  "name": "simplemage/magento2-warmup",
+  "version": "1.0.0",
+  "description": "SimpleMage Cache Warmup",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*"
+  },
+  "license": [
+    "Proprietary"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "SimpleMage\\CacheWarmup\\": ""
+    }
+  }
+}

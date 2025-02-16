@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="simplemage" translate="label" sortOrder="10">
+            <label>SimpleMage</label>
+        </tab>
+        <section id="simplemage_warmup" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Cache Warmup</label>
+            <tab>simplemage</tab>
+            <resource>SimpleMage_Warmup::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <field id="ips" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Varnish Server IPs</label>
+                    <comment><![CDATA[Comma separated list of IP public addresses of Varnish server instances - if you have Varnish on the same server leave it blank]]></comment>
+                </field>
+                <field id="urls_file" translate="label" type="file" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>URLs File</label>
+                    <backend_model>SimpleMage\CacheWarmup\Model\Config\Backend\UrlsFile</backend_model>
+                    <comment><![CDATA[!Important! - only TXT files are allowed]]></comment>
+                </field>
+                <field id="skip_verify_host" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Skip verify host SSL certificate</label>
+                    <comment><![CDATA[!Important! - use only for test instances eg. local environment without SSL configured]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="cronjob" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Cronjob Settings</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable warmup cronjob</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="cron_schedule" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Cron schedule</label>
+                    <comment><![CDATA[To schedule warmup use cron expression e.g. 0 1 * * * to run every day at 1:00 AM]]></comment>
+                </field>
+                <field id="debug" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable debug mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
