@@ -4,7 +4,9 @@
 
 The **SimpleMage CacheWarmup** module is designed to enhance the performance of your Magento store by automating the process of warming up the cache for your website's pages. This module is compatible with both **Magento Full Page Cache** and **Varnish**, ensuring that your store's pages are preloaded into the cache, reducing load times for your visitors.
 
-The module allows you to upload a file containing most viewed 1000-2000 URLs (e.g. exorted from Google Analytics) and automatically performs a cache warmup for those pages. It is particularly useful for setups with multiple Varnish servers, as it can handle complex infrastructures seamlessly.
+Using this module you do not need advanced rules or settings in Magento, you can add specific URLs from a file added in the admin panel that are important for your business - the most visited subpages or new products, e.g. 1000-2000 most frequently displayed addresses from Google Analytics or another analytics tool with visit statistics.
+
+It is particularly useful for setups with multiple Varnish servers, as it can handle complex infrastructures seamlessly - without coding.
 
 ## Key Features
 
