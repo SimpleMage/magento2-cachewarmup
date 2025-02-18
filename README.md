@@ -14,6 +14,11 @@ The module allows you to upload a file containing most viewed 1000-2000 URLs (e.
 - **Cronjob Integration**: Automates cache warmup at scheduled intervals via cronjob.
 - **SSL Verification**: Includes an option to disable SSL verification for local Varnish testing.
 
+## Limitations
+
+- **Customer group**: In this version the module does not support customer groups - it saves pages in the cache only for not logged in clients
+- **Clean cache**: If the server performs a full page cache cleanup, the pages will be saved in the cache only after the cronjob is executed again
+
 ## Installation
 
 1. Use composer to install
