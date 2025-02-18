@@ -1,0 +1,5 @@
+https://example.com/
+https://example.com/cool-product
+https://example.com/best-category
+https://example.com/best-category?color=blue&bestseller=true
+https://example.com/amazing-blog-post
