@@ -8,8 +8,8 @@ use Magento\Framework\Filesystem\DirectoryList;
 
 class Config
 {
-    protected const string CONFIG_PATH_GENERAL = 'simplemage_warmup/general/';
-    protected const string CONFIG_PATH_CRONJOB = 'simplemage_warmup/cronjob/';
+    protected const string CONFIG_PATH_GENERAL = 'simplemage_cachewarmup/general/';
+    protected const string CONFIG_PATH_CRONJOB = 'simplemage_cachewarmup/cronjob/';
 
     /**
      * @var ScopeConfigInterface $scopeConfig
@@ -75,7 +75,11 @@ class Config
      */
     public function getUrlsFilePath()
     {
-        return 'import/warmup/' . $this->scopeConfig->getValue(self::CONFIG_PATH_GENERAL . 'urls_file');
+        if ($this->scopeConfig->getValue(self::CONFIG_PATH_GENERAL . 'source_mode') === 'file_upload') {
+            return 'import/warmup/' . $this->scopeConfig->getValue(self::CONFIG_PATH_GENERAL . 'urls_file');
+        }
+
+        return 'import/warmup_urls.txt';
     }
 
     /**

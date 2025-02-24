@@ -11,7 +11,8 @@ It is particularly useful for setups with multiple Varnish servers, as it can ha
 ## Key Features
 
 - **Compatibility**: Works with both Magento Full Page Cache and Varnish.
-- **URL from file**: Supports cache warmup based on a list of URLs imported from a file (e.g., from Google Analytics) - can warmup custom pages from every module provider e.g. blog module or category pages with filters applied.
+- **URLs from file**: Supports cache warmup based on a list of URLs imported from a file (e.g., from Google Analytics) - can warmup custom pages from every module provider e.g. blog module or category pages with filters applied.
+- **Automated custom file read**: If you want to prepare custom automatic file generation with list of URLs you can create your own script and upload file to static path.
 - **Multi-Server Support**: Handles infrastructures with multiple Varnish servers or single Varnish instance.
 - **Cronjob Integration**: Automates cache warmup at scheduled intervals via cronjob.
 - **SSL Verification**: Includes an option to disable SSL verification for local Varnish testing.
@@ -36,7 +37,8 @@ or download the module files and place them in the `app/code/SimpleMage/CacheWar
 3. Configure the module via the Magento admin panel under `Stores > Configuration > SimpleMage > Cache Warmup`
  - `General Settings`
    - `Varnish Server IPs` - if you have multiple Varnish servers put here public IPs of this servers, if you have Varnish installed on the same server (or not have Varnish installed) leave it blank
-   - `URLs File` - upload file with URLs you want to warump - supports simple TXT file with URLs separated by new line - you can find example file in repository [example-file.txt](example-file.txt)
+   - `File source` - select data source (default option is `File upload`) - if you want to create custom script to prepare automatically URLs to warmup please select option `Static file path` and save your file in Magento system path `var/import/warmup_urls.txt`
+   - `File with URLs to warmup` - upload file with URLs you want to warump - supports simple TXT file with URLs separated by new line - you can find example file in repository [example-file.txt](example-file.txt)
    - `Skip verify host SSL certificate` - use only on localhost for testing purposes
  - `Cronjob Settings`
    - `Enable warmup cronjob` - enable or disable warmup cronjob

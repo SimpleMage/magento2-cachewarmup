@@ -4,22 +4,30 @@
         <tab id="simplemage" translate="label" sortOrder="10">
             <label>SimpleMage</label>
         </tab>
-        <section id="simplemage_warmup" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+        <section id="simplemage_cachewarmup" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Cache Warmup</label>
             <tab>simplemage</tab>
-            <resource>SimpleMage_Warmup::config</resource>
+            <resource>SimpleMage_CacheWarmup::config</resource>
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General Settings</label>
                 <field id="ips" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Varnish Server IPs</label>
                     <comment><![CDATA[Comma separated list of IP public addresses of Varnish server instances - if you have Varnish on the same server leave it blank]]></comment>
                 </field>
-                <field id="urls_file" translate="label" type="file" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>URLs File</label>
+                <field id="source_mode" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Data source</label>
+                    <source_model>SimpleMage\CacheWarmup\Model\Config\Source\SourceMode</source_model>
+                    <comment><![CDATA[If you choose 'Static file path' it will take file from `var/import/warmup_urls.txt` path]]></comment>
+                </field>
+                <field id="urls_file" translate="label" type="file" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>File with URLs to warmup</label>
                     <backend_model>SimpleMage\CacheWarmup\Model\Config\Backend\UrlsFile</backend_model>
                     <comment><![CDATA[!Important! - only TXT files are allowed]]></comment>
+                    <depends>
+                        <field id="source_mode">file_upload</field>
+                    </depends>
                 </field>
-                <field id="skip_verify_host" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="skip_verify_host" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Skip verify host SSL certificate</label>
                     <comment><![CDATA[!Important! - use only for test instances eg. local environment without SSL configured]]></comment>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
