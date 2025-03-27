@@ -1,6 +1,6 @@
 {
   "name": "simplemage/magento2-cachewarmup",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "SimpleMage Cache Warmup",
   "type": "magento2-module",
   "require": {
