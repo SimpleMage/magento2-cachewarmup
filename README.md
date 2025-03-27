@@ -26,6 +26,10 @@ It is particularly useful for setups with multiple Varnish servers, as it can ha
 
 1. Use composer to install
 
+   ```bash
+   composer require simplemage/magento2-cachewarmup
+   ```
+
 or download the module files and place them in the `app/code/SimpleMage/CacheWarmup` directory within your Magento installation
 
 2. Run the following commands to enable the module:
