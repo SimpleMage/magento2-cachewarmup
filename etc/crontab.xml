@@ -2,7 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
     <group id="simplemage_warmup">
         <job name="simplemage_cache_warmup" instance="SimpleMage\CacheWarmup\Cron\CacheWarmup" method="execute">
-            <config_path>simplemage_warmup/cronjob/cron_schedule</config_path>
+            <config_path>simplemage_cachewarmup/cronjob/cron_schedule</config_path>
         </job>
     </group>
 </config>
